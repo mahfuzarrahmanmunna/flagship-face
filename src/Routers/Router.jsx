@@ -4,6 +4,7 @@ import MainLayouts from "../Layouts/MainLayouts/MainLayouts";
 import About from "../Pages/About/About";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import Favourite from "../Pages/Favourite/Favourite";
+import PhoneDetails from "../Pages/PhoneDetails/PhoneDetails";
 
 export const route = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ export const route = createBrowserRouter([
             {
                 path: 'favorites',
                 Component: Favourite,
+            },
+            {
+                path: 'phone-details',
+                Component: PhoneDetails
             }
         ]
     }
