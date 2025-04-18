@@ -1,10 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const MainLayouts = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Navbar />
+            <Outlet />
+            <h1>Footer</h1>
+        </>
     );
 };
 
