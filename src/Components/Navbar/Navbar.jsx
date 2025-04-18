@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
 import { IoMdCart } from "react-icons/io";
-import { MdShoppingCart } from "react-icons/md";
+import { MdBookmarkAdd } from "react-icons/md";
+
 
 
 
@@ -17,15 +18,25 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
                             <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/'>
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/about'>
+                                About
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/'><IoMdCart size={25} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/favorites'>
+                                <MdBookmarkAdd size={25} />
+                            </NavLink>
+                        </li>
                         </ul>
                     </div>
                     <Link to='/' className=" font-bold text-2xl">FlagShipFaceOff</Link>
@@ -51,7 +62,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/favorites'>
-                                <MdShoppingCart size={25} />
+                                <MdBookmarkAdd size={25} />
                             </NavLink>
                         </li>
                     </ul>
