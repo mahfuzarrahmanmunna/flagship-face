@@ -1,13 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import { IoMdCart } from "react-icons/io";
+import { MdShoppingCart } from "react-icons/md";
+
+
 
 const Navbar = () => {
     return (
         <>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar p-0 bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="cursor-pointer mr-2 lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
@@ -31,19 +35,26 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
                         <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/'>
+                                Home
+                            </NavLink>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/about'>
+                                About
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/'><IoMdCart size={25} />
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/favorites'>
+                                <MdShoppingCart size={25} />
+                            </NavLink>
+                        </li>
                     </ul>
-                    <a className="btn">Button</a>
                 </div>
             </div>
         </>
