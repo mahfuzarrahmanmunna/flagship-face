@@ -31,6 +31,10 @@ export const route = createBrowserRouter([
                 Component: PhoneDetails,
                 hydrateFallbackElement: <p>Loading ....</p>,
                 loader: () => fetch('../phones.json')
+            },
+            {
+                path: 'cart',
+                element: <p>this is cart</p>
             }
         ]
     }

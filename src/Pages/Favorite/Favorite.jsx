@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getFavorite, removeFavorite } from '../../utils/LocalStorage';
 import PhoneCard from '../../Components/PhoneCard/PhoneCard';
+import toast from 'react-hot-toast';
 
 const Favorite = () => {
     const [displayPhones, setDisplayPhones] = useState([])
@@ -12,6 +13,7 @@ const Favorite = () => {
     const handleDelete = (id) => {
         removeFavorite(id)
         setDisplayPhones(getFavorite())
+        toast.remove('Remove from Favorite')
     }
     return (
         <div className='py-12 '>

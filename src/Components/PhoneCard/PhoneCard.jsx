@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { MdDeleteForever } from "react-icons/md";
-import { removeFavorite } from '../../utils/LocalStorage';
 
 
 const PhoneCard = ({ phone, deleteAble, handleDelete }) => {

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { IoMdCart } from "react-icons/io";
 import { MdBookmarkAdd } from "react-icons/md";
 import Button from '../../Components/Ui/Button';
-import { addFavorite } from '../../utils/LocalStorage';
+import { addCart, addFavorite, getCart } from '../../utils/LocalStorage';
+import { CartContext } from '../../Provider/Context';
 
 const PhoneDetails = () => {
     const data = useLoaderData()
+    const { setCart } = useContext(CartContext)
     const { id } = useParams()
     const singlePhone = data.find(phone => phone.id === parseInt(id))
     console.log(singlePhone);
@@ -25,6 +27,13 @@ const PhoneDetails = () => {
     const handleFavorite = () => {
         addFavorite(singlePhone)
     }
+    const handleCart = () => {
+        // save to localStorage for persistency
+        addCart(singlePhone)
+        // update state for instant ui change
+        // setCart(prv => [...prv, singlePhone])
+        setCart(getCart())
+    }
     return (
         <>
             <div className='w-full py-12'>
@@ -34,7 +43,7 @@ const PhoneDetails = () => {
                 <h1 className='text-6xl font-thin mb-8'>{name}</h1>
                 <div className='flex gap-4'>
                     <div>
-                        <Button label={<IoMdCart size={25} />} />
+                        <Button onClick={handleCart} label={<IoMdCart size={25} />} />
                     </div>
                     <div><Button onClick={handleFavorite} label={<MdBookmarkAdd size={25} />} /></div>
                 </div>
