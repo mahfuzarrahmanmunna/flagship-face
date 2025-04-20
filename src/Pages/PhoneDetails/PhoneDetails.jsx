@@ -22,6 +22,7 @@ const PhoneDetails = () => {
         storage,
         camera_info,
     } = singlePhone || {}
+    console.log(price);
 
 
     const handleFavorite = () => {
@@ -47,6 +48,47 @@ const PhoneDetails = () => {
                     </div>
                     <div><Button onClick={handleFavorite} label={<MdBookmarkAdd size={25} />} /></div>
                 </div>
+            </div>
+            <div>
+                <table className='table'>
+                    <tbody>
+                        <tr>
+                            <th> Name : </th>
+                            <td>{name}</td>
+                        </tr>
+                        <tr>
+                            <th>Brand : </th>
+                            <td>{brand}</td>
+                        </tr>
+                        <tr>
+                            <th>Model : </th>
+                            <td>{model}</td>
+                        </tr>
+                        <tr>
+                            <th>price : </th>
+                            <td>
+                                {
+                                    price && typeof price === 'object' &&
+                                    Object.keys(price).map(key => (
+                                        <p key={key}>{key}</p>
+                                    ))
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Camera : </th>
+                            <td>{camera_info}</td>
+                        </tr>
+                        <tr>
+                            <th>Storage : </th>
+                            <td>{storage}</td>
+                        </tr>
+                        <tr>
+                            <th>Description : </th>
+                            <td>{description}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </>
     );

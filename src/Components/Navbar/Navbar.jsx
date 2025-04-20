@@ -11,7 +11,7 @@ const Navbar = () => {
     const { cart } = useContext(CartContext)
     return (
         <>
-            <div className="navbar p-0 bg-base-100 shadow-sm  mx-auto px-8 md:px-12 lg:px-16 xl:px-24">
+            <div className="sticky top-0 z-10 navbar p-0 bg-base-100 shadow-sm  mx-auto px-8 md:px-12 lg:px-16 xl:px-24">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="cursor-pointer mr-2 lg:hidden">
@@ -31,7 +31,7 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/'><IoMdCart size={25} />
+                                <NavLink className={({ isActive }) => (`font-medium ${isActive ? 'text-indigo-600' : ''}`)} to='/cart'><IoMdCart size={25} />
                                 </NavLink>
                             </li>
                             <li>
